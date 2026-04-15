@@ -36,6 +36,12 @@ function domainUrlFilter(hostname) {
   return `||${hostname}^`;
 }
 
+const BLOCK_ORIGINS = ["<all_urls>"];
+
+async function hasBlockHostPermission() {
+  return chrome.permissions.contains({ origins: BLOCK_ORIGINS });
+}
+
 async function syncBlockingRules() {
   const { focusMode = false, blockedSites = [] } =
     await chrome.storage.sync.get(["focusMode", "blockedSites"]);
@@ -50,6 +56,11 @@ async function syncBlockingRules() {
   }
 
   if (!focusMode || hostnames.length === 0) {
+    await chrome.declarativeNetRequest.updateDynamicRules({ removeRuleIds });
+    return;
+  }
+
+  if (!(await hasBlockHostPermission())) {
     await chrome.declarativeNetRequest.updateDynamicRules({ removeRuleIds });
     return;
   }
@@ -124,3 +135,14 @@ chrome.runtime.onStartup.addListener(() => {
 });
 
 syncBlockingRules();
+
+chrome.permissions.onRemoved.addListener(() => {
+  void syncBlockingRules();
+});
+
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  if (message?.type === "syncBlockingRules") {
+    void syncBlockingRules().then(() => sendResponse({ ok: true }));
+    return true;
+  }
+});
