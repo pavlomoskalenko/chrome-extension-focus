@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title">Focus Mode</h1>
+      <label class="toggle">
+        <input type="checkbox" id="focusToggle" />
+        <span class="toggle-ui" aria-hidden="true"></span>
+        <span class="toggle-label" id="toggleLabel">Off</span>
+      </label>
+    </header>
+
+    <div class="timer-card">
+      <p class="timer-caption" id="timerCaption">Total focus time</p>
+      <p class="timer-main" id="timerMain">0m</p>
+    </div>
+
+    <section class="section">
+      <p class="hint">Sites you cannot open while focus is on (one domain per line or comma-separated).</p>
+      <form id="addForm" class="add-form">
+        <input
+          type="text"
+          id="siteInput"
+          placeholder="e.g. twitter.com or https://reddit.com"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="submit" class="btn primary">Add</button>
+      </form>
+      <ul id="siteList" class="site-list"></ul>
+    </section>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
