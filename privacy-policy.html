@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Focus Mode (Chrome Extension)</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --text: #1a1a1a;
+        --muted: #555;
+        --bg: #fafafa;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text: #f2f2f2;
+          --muted: #aaa;
+          --bg: #121212;
+        }
+      }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.55;
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 3rem;
+        color: var(--text);
+        background: var(--bg);
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin-top: 1.75rem;
+      }
+      p,
+      li {
+        color: var(--muted);
+      }
+      ul {
+        padding-left: 1.25rem;
+      }
+      .meta {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy — Focus Mode</h1>
+    <p class="meta">Last updated: <time datetime="2026-04-15">15 April 2026</time></p>
+
+    <p>
+      <strong>Focus Mode</strong> is a browser extension for Google Chrome that blocks websites you add to a
+      list while Focus Mode is enabled, and shows a simple timer for how long you stay in focus mode.
+    </p>
+
+    <h2>Data we collect</h2>
+    <p>
+      We do not operate backend servers for this extension. We do not collect, transmit to ourselves, sell, or
+      use your browsing history, passwords, or personal identifiers through the extension.
+    </p>
+
+    <h2>Data stored on your device</h2>
+    <p>The extension stores information only using Chrome’s extension storage APIs, for example:</p>
+    <ul>
+      <li>Your list of sites to block</li>
+      <li>Whether Focus Mode is on or off</li>
+      <li>Values used for the session timer and total focus time</li>
+    </ul>
+    <p>
+      If you use Chrome while signed in and have Chrome sync enabled for extensions, Google may sync this
+      data according to your Google account and Chrome settings. That processing is governed by Google’s
+      policies, not by a separate service run by the extension developer.
+    </p>
+
+    <h2>How permissions are used</h2>
+    <ul>
+      <li>
+        <strong>Storage</strong> — to save your settings and block list locally (and via Chrome sync when
+        applicable).
+      </li>
+      <li>
+        <strong>Declarative Net Request</strong> — to block network requests to domains you listed, only while
+        Focus Mode is on.
+      </li>
+      <li>
+        <strong>Broad host access</strong> — so you can choose which sites to block; the extension does not use
+        this permission to read unrelated page content.
+      </li>
+    </ul>
+
+    <h2>Remote code</h2>
+    <p>
+      The extension does not load or execute code from remote servers. All extension logic is contained in
+      the packaged files distributed through the Chrome Web Store.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If this policy changes in a meaningful way, we will update this page and, where required, the Chrome Web
+      Store listing.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For privacy questions about this extension, contact:
+      <!-- Replace with an email you monitor -->
+      <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+    </p>
+  </body>
+</html>
